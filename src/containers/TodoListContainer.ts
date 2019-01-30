@@ -5,6 +5,8 @@ import { toggleTodo, deleteTodo } from '../actions/Todo/ActionCreator';
 import { connect } from 'react-redux';
 import TodoList from '../components/Todo/TodoList';
 
+// AddtodoButtoncontainerと同様
+
 interface IStateFormProps{
     todos: Todos
 }

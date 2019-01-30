@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+// storeと繋ぐpropsを宣言
 interface ITodoProps{
     completed: boolean;
     text: string;
@@ -9,9 +10,11 @@ interface ITodoProps{
 
 class Todo extends React.Component<ITodoProps>{
     public render(){
+        // それぞれのpropsを受け取る
         const {completed, text, onClick, onDelete} = this.props;
         return(
             <li>
+                {/* textがクリックされた際に、completeの値によって線が引かれるor消される */}
                 <label onClick={onClick} style={{textDecoration: completed? 'line-through' : 'none'}}>
                     {text}
                 </label>

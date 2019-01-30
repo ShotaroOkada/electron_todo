@@ -22,7 +22,7 @@ const todosReducer = (state: Todos, action: TodoAction): Todos => {
 
         case TodoActionType.DELETE_TODO:
          return state.filter(todo => todo.id !== action.id);
-         
+
         default:
          return state;
     }
