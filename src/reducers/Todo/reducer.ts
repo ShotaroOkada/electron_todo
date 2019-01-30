@@ -2,14 +2,15 @@ import { Todos } from "../../states/Todo/TodosState";
 import { TodoAction } from '../../actions/Todo/Action';
 import { TodoActionType } from '../../actions/Todo/ActionType';
 
-function todosReducer(state: Todos, action: TodoAction): Todos{
+
+const todosReducer = (state: Todos, action: TodoAction): Todos => {
     switch(action.type){
         case TodoActionType.ADD_TODO:
          return [
             ...state,
             {
-             id: action.id,
              completed: false,
+             id: action.id,
              text: action.text
             }
          ];
@@ -21,6 +22,7 @@ function todosReducer(state: Todos, action: TodoAction): Todos{
 
         case TodoActionType.DELETE_TODO:
          return state.filter(todo => todo.id !== action.id);
+         
         default:
          return state;
     }

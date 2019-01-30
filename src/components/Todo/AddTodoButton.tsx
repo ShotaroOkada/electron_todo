@@ -20,8 +20,8 @@ class AddTodoButton extends React.Component<IAddTodoButtonProps, IAddTodoButtonS
         return(
             <div>
                 <form onSubmit={this.onFormSubmit}>
-                    <input type="text"/>
-                    <button></button>
+                    <input type="text" value={this.state.input} onChange={this.onInputChange}/>
+                    <button>Todoを追加</button>
                 </form>
             </div>
         )
@@ -30,13 +30,16 @@ class AddTodoButton extends React.Component<IAddTodoButtonProps, IAddTodoButtonS
     public onFormSubmit = (e: React.FormEvent<HTMLFormElement>): void =>{
         e.preventDefault();
         if(!this.state.input.trim()){
+            alert("formsubmit");
             return
         }
 
+        alert(this.state.input);
         this.props.onSubmit(this.state.input);
         this.setState({
             input: ""
         })
+        alert(this.state.input);
     }
 
     public onInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
