@@ -5,7 +5,7 @@ let nextTodoId = 0;
 
 // actionで何をするかを書く
 
-// todoが追加されたときにreducerに渡すもの
+// todoが追加されたときにreducerに渡すもの.
 export function addTodo(text: string): IAddTodoAction {
     return{
         id: nextTodoId++,
