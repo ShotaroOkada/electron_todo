@@ -3,6 +3,9 @@ import { TodoActionType } from './ActionType';
 
 let nextTodoId = 0;
 
+// actionで何をするかを書く
+
+// todoが追加されたときにreducerに渡すもの
 export function addTodo(text: string): IAddTodoAction {
     return{
         id: nextTodoId++,
@@ -11,6 +14,7 @@ export function addTodo(text: string): IAddTodoAction {
     }
 }
 
+// todoがクリックされたときにreducerに渡すもの
 export function toggleTodo(id: number): IToggleAction{
     return{
         id,
@@ -18,6 +22,7 @@ export function toggleTodo(id: number): IToggleAction{
     }
 }
 
+// todoが削除されたときにreducerに渡すもの
 export function deleteTodo(id: number): IDeleteTodoAction{
     return{
         id,

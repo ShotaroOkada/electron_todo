@@ -3,7 +3,7 @@ import './App.css';
 import AddTodoButtonContainer from './containers/AddTodoButtonContainer';
 import TodoListContainer from './containers/TodoListContainer';
 
-
+// ここでstoreとやり取りするcontainerをまとめている
 class App extends React.Component {
   public render() {
     return (

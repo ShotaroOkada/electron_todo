@@ -1,5 +1,6 @@
 import { TodoActionType } from './ActionType';
 
+// それぞれのアクションで必要な型を宣言
 export interface IAddTodoAction{
     type: TodoActionType.ADD_TODO;
     id: number;
