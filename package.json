@@ -26,6 +26,7 @@
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
     "@types/react-dom": "^16.0.11",
+    "tslint-no-unused-expression-chai": "^0.1.4",
     "typescript": "^3.2.4"
   }
 }

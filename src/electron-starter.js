@@ -6,6 +6,7 @@ const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
+const Menu = electron.Menu;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -24,6 +25,32 @@ function createWindow() {
     mainWindow.loadURL(startUrl);
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
+
+     // アプリケーションメニュー設定
+var menu = Menu.buildFromTemplate([
+    {
+      label: 'Sample',
+      submenu: [
+        {label: 'About'},
+        {label: 'Quit'}
+      ]
+    },
+    {
+      label: 'File',
+      submenu: [
+        {label: 'New File'},
+        {label: 'Paste'}
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        {label: 'Copy', accelerator: 'Command+C', selector: 'copy'},
+        {label: 'Paste', accelerator: 'Command+V', selector: 'paste'}
+      ]
+    }
+  ]);
+  Menu.setApplicationMenu(menu);
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -47,6 +74,15 @@ app.on('window-all-closed', function () {
         app.quit()
     }
 });
+
+// app.on('ready', function(){
+//     mainWindow = new BrowserWindow({
+//         'frame': true,
+//         'height': 600,
+//         'transparent': false, //trueで背景色を透明にできる
+//         'width': 500,
+//       });
+// });
 
 app.on('activate', function () {
     // On OS X it's common to re-create a window in the app when the
