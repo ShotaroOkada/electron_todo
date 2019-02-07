@@ -24,7 +24,7 @@ class AddTodoButton extends React.Component<IAddTodoButtonProps, IAddTodoButtonS
             <div>
                 <form onSubmit={this.onFormSubmit}>
                     <input type="text" value={this.state.input} onChange={this.onInputChange}/>
-                    <button onClick={this.notification}>Todoを追加</button>
+                    <button>Todoを追加</button>
                 </form>
             </div>
         )
@@ -38,9 +38,10 @@ class AddTodoButton extends React.Component<IAddTodoButtonProps, IAddTodoButtonS
             return
         }
 
-
         // 引数に入力されたtodoを受け取り、その後フォームの入力を空にする
         this.props.onSubmit(this.state.input);
+
+        this.notificationAdd();
 
         // stateを変更する場合は、必ずsetStateを使う
         this.setState({
@@ -55,11 +56,22 @@ class AddTodoButton extends React.Component<IAddTodoButtonProps, IAddTodoButtonS
         })
     }
 
-    public notification = () => {
-        const myNotification = new Notification('Title', {
-            body: 'Lorem Ipsum Dolor Sit Amet'
-          })
-        console.log(myNotification);
+    private notificationAdd = () => {
+        const notificationText = this.state.input + "が追加されました"
+        if("Notification" in window){
+            const ask = Notification.requestPermission();
+            ask.then(permission =>{
+              if(permission === "granted"){
+                const msg = new Notification("タスクの追加", {
+                  body: notificationText,
+                  // icon: "./images/icon.jpg"
+                });
+                msg.addEventListener("click", event =>{
+                  alert("Click received");
+                });
+              }
+            });
+        }
     }
 }
 
