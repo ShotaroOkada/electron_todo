@@ -37,7 +37,7 @@ class TodoList extends React.Component<ITodoListProps>{
     }
 
     private notificationDelete = (id: number) => {
-        const notificationText = this.props.todos[id] + "が削除されました"
+        const notificationText = this.props.todos[id].text + "が削除されました"
         if("Notification" in window){
             const ask = Notification.requestPermission();
             ask.then(permission =>{
