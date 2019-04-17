@@ -8,7 +8,7 @@ export interface IAddTodoButtonProps{
 // このcomponent内で使うstateの型を宣言
 export interface IAddTodoButtonState{
     input: string;
-}
+} 
 
 class AddTodoButton extends React.Component<IAddTodoButtonProps, IAddTodoButtonState>{
     // stateの初期化
